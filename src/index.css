@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1a2a;
 }
 
 code {
@@ -28,6 +29,43 @@ code {
 .Plaas-header {
   position: fixed;
   width: 100%;
+}
+
+.Plaas-jumbtoron {
+  color: white;
+  background-color: #2a2a5a;
+}
+
+.Plaas-templates {
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+}
+
+.card {
+  box-shadow: 1px 1px 2px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.fly {
+  -webkit-transition: all 0.15s ease;
+  -o-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+.fly:hover {
+  z-index: 999;
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+  -webkit-transition: all 0.15s ease;
+  -o-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+.Plaas-container {
+  padding-top: 90px;
 }
 
 /* Apps */
