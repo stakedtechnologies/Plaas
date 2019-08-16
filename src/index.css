@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #1a1a2a;
+  color: white;
 }
 
 code {
@@ -41,11 +42,28 @@ code {
   margin-left:  auto; /* 1 */
 }
 
+.Plaas-steps {
+  padding-top: 40px;
+}
+
+.Plaas-step {
+  background-color: rgba(0,0,0,0.0);
+  color: white;
+  text-align-last: left;
+  border-color: gray;
+
+}
+
+.Plaas-step-side {
+  float: right;
+}
+
 .card {
   box-shadow: 1px 1px 2px;
   border-radius: 10px;
   margin-bottom: 30px;
   cursor: pointer;
+  color: #111111;
 }
 
 .fly {
@@ -96,4 +114,21 @@ code {
 
 .App-link {
   color: #61dafb;
+}
+
+/* About */
+.About {
+  text-align-last: left;
+  color: white;
+}
+
+/* Step */
+.step-selected {
+  font-weight: bolder;
+}
+
+.button-row {
+  padding: 10px;
+  white-space: nowrap;
+  flex-wrap: nowrap;
 }

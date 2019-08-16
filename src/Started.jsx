@@ -6,13 +6,13 @@ import './index.css';
 var templates =[
     {
         name: "Default(Plasma Cash)",
-        link: "/deploy/cash",
-        descripstion: "Deploy default Plasma Apllication. Same is Plamsa Cash."
+        link: "/create/cash",
+        descripstion: "Create default Plasma Apllication. Same is Plamsa Cash."
     },
     {
         name: "Custom",
         link: "/404.html",
-        descripstion: "Deploy custom plasma application. You can deploy original plapps. Comming Soon..."
+        descripstion: "Create custom plasma application. You can create original plapps. Comming Soon..."
     }
 ];
 
