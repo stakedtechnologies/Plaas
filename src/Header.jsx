@@ -26,7 +26,7 @@ class Header extends React.Component {
     }
 
     render() {
-        return (<Navbar bg="light" expand="lg">
+        return (<Navbar expand="lg" className="navbar-dark bg-dark Plaas-header">
             <Navbar.Brand href="/">Plasm as a Service</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
