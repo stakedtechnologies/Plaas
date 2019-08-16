@@ -1,7 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types'
-import {Col, Row, Container, Jumbotron, Button, ListGroup, ListGroupItem} from 'react-bootstrap'
+import {Button, ListGroup} from 'react-bootstrap'
 import './index.css';
 
 class CreateSteps extends React.Component {

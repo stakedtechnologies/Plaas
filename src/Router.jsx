@@ -8,11 +8,14 @@ import Header from './Header';
 import Footer from './Footer';
 import { BrowserRouter, Route } from "react-router-dom";
 import { withCookies, Cookies } from 'react-cookie';
+import MockManager from './MockExternalManager';
 
 class Router extends React.Component {
     constructor(props) {
       super(props);
-      const { cookies } = props;
+      const { cookies } = props;      
+      console.log('cookies:', cookies);
+      MockManager.init(props);
     }
 
     render() {

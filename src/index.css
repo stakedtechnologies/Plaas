@@ -132,3 +132,34 @@ code {
   white-space: nowrap;
   flex-wrap: nowrap;
 }
+
+/* Progress */
+
+.pg {
+  background: center;
+}
+
+.pg-wait-img {
+  background-image: url(./clock-regular.svg);
+  width: 70px;
+  height: 70px;
+  fill: #ffff00;
+}
+
+.pg-doing-img {
+  background-image: url(./circle-notch-solid.svg);
+  width: 70px;
+  height: 70px;
+  fill: #00ffff;
+}
+
+.pg-passed-img {
+  background-image: url(./check-circle-regular.svg);
+  width: 70px;
+  height: 70px;
+  fill: #adff2f;
+}
+
+.progresses {
+  button-row: nowrap;
+}

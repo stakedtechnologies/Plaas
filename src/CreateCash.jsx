@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {CreateSteps, CreateStep, CreateContinueButton, CreateCancelButton, CreateBackButton} from './CreateSteps';
-import {Container, Modal, Button, InputGroup, FormControl, Row, Col, ListGroup} from 'react-bootstrap'
+import {Container, InputGroup, FormControl, Row, Col, ListGroup} from 'react-bootstrap'
 import './index.css';
-import NavLink from 'react-bootstrap/NavLink';
 import { withCookies, Cookies } from 'react-cookie';
+import MockManager from './MockExternalManager';
 
 var steps = [
     {
@@ -46,10 +46,10 @@ class CreateCash extends React.Component {
         if(nowStep < 0) {
             window.location.href = "/started";
         } else if(nowStep >= steps.length) {
-            const { cookies } = this.props;
-            var cacheKey = 'deploy_caash'+this.state.params.applicationName;
-            cookies.set(cacheKey, this.state.params, { path: '/' });
-            window.location.href = "/deploy/cash?"+this.state.params;            
+            var params = this.state.params;
+            params.template = 'cash';
+            MockManager.startDeploy(params);
+            window.location.href = "/deploy/cash";            
         } else {
             this.setState({steps: <CreateSteps steps={steps.map((m, i) => {
                 if(i == nowStep){
