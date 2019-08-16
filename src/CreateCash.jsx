@@ -4,6 +4,7 @@ import {CreateSteps, CreateStep, CreateContinueButton, CreateCancelButton, Creat
 import {Container, Modal, Button, InputGroup, FormControl, Row, Col, ListGroup} from 'react-bootstrap'
 import './index.css';
 import NavLink from 'react-bootstrap/NavLink';
+import { withCookies, Cookies } from 'react-cookie';
 
 var steps = [
     {
@@ -38,7 +39,6 @@ class CreateCash extends React.Component {
   }
 
   updateState(params) {
-    console.log('updateState Parent', params)
     this.setState({params: params})
   }
 
@@ -46,7 +46,10 @@ class CreateCash extends React.Component {
         if(nowStep < 0) {
             window.location.href = "/started";
         } else if(nowStep >= steps.length) {
-            window.location.href = "/deploy/cash?"+this.state.params;
+            const { cookies } = this.props;
+            var cacheKey = 'deploy_caash'+this.state.params.applicationName;
+            cookies.set(cacheKey, this.state.params, { path: '/' });
+            window.location.href = "/deploy/cash?"+this.state.params;            
         } else {
             this.setState({steps: <CreateSteps steps={steps.map((m, i) => {
                 if(i == nowStep){
@@ -133,7 +136,6 @@ class SettingParameter extends React.Component {
     }
 
     updateState(params) {
-        console.log(params)
         this.props.update(params);
     }
 
@@ -171,7 +173,6 @@ class Confirm extends React.Component {
     }
     constructor(props) {
         super(props)
-        console.log('Confirm', props.params);
     }  
 
     render() {
@@ -193,4 +194,4 @@ class Confirm extends React.Component {
     }
 }
 
-export default CreateCash;
+export default withCookies(CreateCash);

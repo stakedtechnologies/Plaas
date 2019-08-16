@@ -17,7 +17,6 @@ class Header extends React.Component {
     }
 
     selectParentChain(name) {
-        console.log("Selected Mock!!");
         this.setState({parentChainName: name});
     }
 
