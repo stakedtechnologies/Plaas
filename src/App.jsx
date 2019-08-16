@@ -1,22 +1,17 @@
 import React from 'react';
-import logo from './plasm_logo_only.png';
-import './App.css';
+import './index.css';
+import Button from 'react-bootstrap/Button'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.jsx</code> and save to reload.
+          Plasm as a Service
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button href="/started" variant="primary" size="lg" className="App-link" block>
+          Get Started!
+        </Button>
       </header>
     </div>
   );
