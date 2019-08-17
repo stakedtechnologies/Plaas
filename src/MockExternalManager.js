@@ -1,4 +1,5 @@
-const timeSpan = '1s';
+const createBlakeHash = require('blake-hash')
+
 const DEPLOY_APP_NAME = 'deploy_app_name';
 const DEPLOY_CACHE_KEY_PREFIX = 'deploy_';
 const CONSOLE_CASHE_KEY_PREFIX = 'console_';
@@ -39,13 +40,53 @@ class MockExternalManager {
         var casheKey = CONSOLE_CASHE_KEY_PREFIX + params.applicationName;
         params.deployedTime = Date.now(); // set deployed time.
         params.updatedTime = Date.now(); // set updated time.
-        this.cookies.set(casheKey, params)
+        this.cookies.set(casheKey, params, {path: '/'});
         var plapps = this.cookies.get(PLAPPS_NAMES) || [];
         plapps.push(params.applicationName);
         this.cookies.set(PLAPPS_NAMES, plapps, { path: '/' });
+        console.log('finish!!')
+    }
+
+    getPlappsNames() {
+        if(!this.cookies) {
+            return []
+        }
+        return this.cookies.get(PLAPPS_NAMES) || [];
+    }
+
+    getPlappsParams(name) {
+        if(!this.cookies) {
+            return {}
+        }
+        return this.cookies.get(CONSOLE_CASHE_KEY_PREFIX + name) || {};
+    }
+
+    _calcMockBlock(time) {
+        const t = Date.now() - time;
+        const blkNum = t / 2000;
+        const blkHash = createBlakeHash('blake256').update(''+blkNum);
+        return [blkNum, blkHash];
+    }
+
+    getCurrentBlockNumberAtContract(name) {
+        const [num, _] = this._calcMockBlock(this.getPlappsParams(name).updatedTime+1000);
+        return num
+    }
+
+    getContractCurrentBlockAtContract(name) {
+        const [_, hash] = this._calcMockBlock(this.getPlappsParams(name).updatedTime+1000);
+        return hash
+    }
+
+    getContractCurrentBlockNumberAtChildChain(name) {
+        const [num, _] = this._calcMockBlock(this.getPlappsParams(name).updatedTime);
+        return num
+    }
+
+    getCurrentBlockAtChildChain(name) {
+        const [_, hash] = this._calcMockBlock(this.getPlappsParams(name).updatedTime);
+        return hash
     }
 }
 
-const MockManager = new MockExternalManager();
-
-export default MockManager;
+export default MockExternalManager;

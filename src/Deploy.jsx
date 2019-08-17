@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Col, Row, Container, Jumbotron, Button} from 'react-bootstrap'
 import './index.css';
 import { withCookies, Cookies } from 'react-cookie';
-import MockManager from './MockExternalManager';
+import DefaultManager from './ExternalManager';
 
 import check from './check-circle-regular.svg';
 import wait from './clock-regular.svg';
@@ -24,7 +24,7 @@ class Deploy extends React.Component {
     this.state = {
         progress: [0,0,0,0],
         finished: false,
-        appName: MockManager.getDeployAppName(),
+        appName: DefaultManager.getDeployAppName(),
     }
     this.onUpdate = this.onUpdate.bind(this);
   }
@@ -36,12 +36,12 @@ class Deploy extends React.Component {
   }
 
   onUpdate() {
-    var progress = MockManager.getProgress();
+    var progress = DefaultManager.getProgress();
     console.log(progress);
     this.setState({progress: progress});
 
     if(progress[0]==3 && progress[1]==3 && progress[2]==3 && progress[3]==3) {
-        MockManager.finishDeploy();
+        DefaultManager.finishDeploy();
         this.setState({finished: true});
         return; 
     }
@@ -101,7 +101,7 @@ class GoToConsoleButton extends React.Component {
         super(props)
     }  
     render() {
-        return <Button variant="warning" href={"/console/"+this.props.appName} disabled={!this.props.finished}>Go To ConsoleButton</Button>
+        return <Button variant="warning" href={"/console/"+this.props.appName} disabled={!this.props.finished}>Go To Console</Button>
     }
 }
 

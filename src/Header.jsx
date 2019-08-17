@@ -4,13 +4,27 @@ import {
     Navbar,
     Nav,
     NavDropdown
-  } from 'react-bootstrap';
+} from 'react-bootstrap';
+
+import DefaultManager from './ExternalManager';
+
+const chains = [
+    {
+        name: "MockChain",
+    },
+    {
+        name: "PlasmChain(CommingSoon...)",
+    },
+    {
+        name: "Edgeware(CommingSoon...)",
+    },    
+]
 
 class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            parentChainName: "MockChain"
+            parentChainName: chains[0]
         }
         this.selectParentChain = this.selectParentChain.bind(this);
         this.parentChainName = this.parentChainName.bind(this);
@@ -25,19 +39,25 @@ class Header extends React.Component {
     }
 
     render() {
+        const chainList = chains.map(chain => {
+            return <NavDropdown.Item onClick={this.selectParentChain.bind(this, chain.name)}>{chain.name}</NavDropdown.Item>
+        })
+        const consoles = DefaultManager.getPlappsNames().map(plapp => {
+            return <NavDropdown.Item href={"/console/" + plapp}>{plapp}</NavDropdown.Item>
+        })
         return (<Navbar expand="lg" className="navbar-dark bg-dark Plaas-header">
             <Navbar.Brand href="/">Plasm as a Service</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <NavDropdown className="mr-auto" title={this.parentChainName()} id="nav-dropdown">
-                <NavDropdown.Item onClick={this.selectParentChain.bind(this, "MockChain")}>MockChain</NavDropdown.Item>
-                <NavDropdown.Item onClick={this.selectParentChain.bind(this, "PlasmChain(CommingSoon...)")}>PlasmChain(CommingSoon...)</NavDropdown.Item>
-                <NavDropdown.Item onClick={this.selectParentChain.bind(this, "Edgeware(CommingSoon...)")}>Edgeware(ComingSoon...)</NavDropdown.Item>
+                {chainList}
                 <NavDropdown.Divider />
                 <NavDropdown.Item eventKey="4.4">ParentChain List</NavDropdown.Item>
             </NavDropdown>
                 <Nav>
-                    <Nav.Link href="/console">Console</Nav.Link>
+                    <NavDropdown className="mr-auto" title="Console" id="nav-dropdown">
+                        {consoles}
+                    </NavDropdown>
                 </Nav>
                 <Nav>
                     <Nav.Link href="https://stake.co.jp">Stake Technologies</Nav.Link>

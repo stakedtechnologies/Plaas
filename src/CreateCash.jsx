@@ -4,7 +4,7 @@ import {CreateSteps, CreateStep, CreateContinueButton, CreateCancelButton, Creat
 import {Container, InputGroup, FormControl, Row, Col, ListGroup} from 'react-bootstrap'
 import './index.css';
 import { withCookies, Cookies } from 'react-cookie';
-import MockManager from './MockExternalManager';
+import DefaultManager from './ExternalManager';
 
 var steps = [
     {
@@ -48,7 +48,7 @@ class CreateCash extends React.Component {
         } else if(nowStep >= steps.length) {
             var params = this.state.params;
             params.template = 'cash';
-            MockManager.startDeploy(params);
+            DefaultManager.startDeploy(params);
             window.location.href = "/deploy/cash";            
         } else {
             this.setState({steps: <CreateSteps steps={steps.map((m, i) => {
