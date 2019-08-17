@@ -7,12 +7,12 @@ var templates =[
     {
         name: "Default(Plasma Cash)",
         link: "/create/cash",
-        descripstion: "Create default Plasma Apllication. Same is Plamsa Cash."
+        descripstion: "Create a default Plasma apllication."
     },
     {
         name: "Custom",
         link: "/404.html",
-        descripstion: "Create custom plasma application. You can create original plapps. Comming Soon..."
+        descripstion: "Create custom Plasma application. You can create original plapps. Comming Soon..."
     }
 ];
 
