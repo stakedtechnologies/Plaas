@@ -24,7 +24,7 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            parentChainName: chains[0]
+            parentChainName: chains[0].name
         }
         this.selectParentChain = this.selectParentChain.bind(this);
         this.parentChainName = this.parentChainName.bind(this);

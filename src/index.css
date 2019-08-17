@@ -129,6 +129,9 @@ code {
   font-weight: bolder;
 }
 
+.console-column {
+}
+
 .button-row {
   padding: 10px;
   white-space: nowrap;

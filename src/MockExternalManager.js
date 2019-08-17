@@ -61,30 +61,31 @@ class MockExternalManager {
         return this.cookies.get(CONSOLE_CASHE_KEY_PREFIX + name) || {};
     }
 
-    _calcMockBlock(time) {
+    static _calcMockBlock(time) {
         const t = Date.now() - time;
-        const blkNum = t / 2000;
-        const blkHash = createBlakeHash('blake256').update(''+blkNum);
+        const blkNum = Math.floor(t / 2000);
+        const blkHash = '0x' + createBlakeHash('blake256').update(''+blkNum).digest('hex');
+        console.log('blkNum', blkNum, 'blkHash', blkHash);
         return [blkNum, blkHash];
     }
 
     getCurrentBlockNumberAtContract(name) {
-        const [num, _] = this._calcMockBlock(this.getPlappsParams(name).updatedTime+1000);
+        const [num, _] = MockExternalManager._calcMockBlock(this.getPlappsParams(name).updatedTime+1000);
         return num
     }
 
     getContractCurrentBlockAtContract(name) {
-        const [_, hash] = this._calcMockBlock(this.getPlappsParams(name).updatedTime+1000);
+        const [_, hash] = MockExternalManager._calcMockBlock(this.getPlappsParams(name).updatedTime+1000);
         return hash
     }
 
     getContractCurrentBlockNumberAtChildChain(name) {
-        const [num, _] = this._calcMockBlock(this.getPlappsParams(name).updatedTime);
+        const [num, _] = MockExternalManager._calcMockBlock(this.getPlappsParams(name).updatedTime);
         return num
     }
 
     getCurrentBlockAtChildChain(name) {
-        const [_, hash] = this._calcMockBlock(this.getPlappsParams(name).updatedTime);
+        const [_, hash] = MockExternalManager._calcMockBlock(this.getPlappsParams(name).updatedTime);
         return hash
     }
 }

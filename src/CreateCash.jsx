@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {CreateSteps, CreateStep, CreateContinueButton, CreateCancelButton, CreateBackButton} from './CreateSteps';
-import {Container, InputGroup, FormControl, Row, Col, ListGroup} from 'react-bootstrap'
+import {Container, InputGroup, FormControl, Row, Col, ListGroup, Jumbotron} from 'react-bootstrap'
 import './index.css';
 import { withCookies, Cookies } from 'react-cookie';
 import DefaultManager from './ExternalManager';
@@ -79,14 +79,15 @@ class CreateCash extends React.Component {
     }
     return (<div className="App">
       <Container fluid={false} className="Plaas-container">
+        <Jumbotron className="Plaas-jumbtoron">
+            <h1>Create Plasma Cash Application</h1>
+        </Jumbotron>
         <Row>
             <Col className="Plaas-steps" md="3">
                 {this.state.steps}
             </Col>
             <Col className="Plass-steps-side">
-            <h1>Create Plama Cash application</h1>
-            <hr />
-                {main}
+            {main}
             <Row className="button-row">
                 <Col md="6"></Col>
                 <Col mr="auto"><CreateCancelButton /></Col>
