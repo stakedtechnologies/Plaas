@@ -91,6 +91,7 @@ code {
 /* Apps */
 .App {
   text-align: center;
+  padding-bottom: 20%;
 }
 
 .App-header {
@@ -167,4 +168,13 @@ code {
 
 .progresses {
   button-row: nowrap;
+}
+
+/* Cosole */
+table {
+  width: 100%;
+}
+
+table td {
+  word-break : break-all;
 }

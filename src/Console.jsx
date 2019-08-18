@@ -50,7 +50,7 @@ class Console extends React.Component {
     updateStep(step) {
         console.log('updateStep', step)
         this.setState({step: step})
-        this.state.menu = this.makeConsoleMenu(this.state.step);
+        this.state.menu = this.makeConsoleMenu(step);
     }
 
     makeMain(nowStep) {
@@ -164,24 +164,10 @@ class State extends React.Component {
     }
 
     render() {
-        const table = stateMenu.map((st, _) => {
-            const head = (<tr>
-                <th colSpan="2">{st.title}</th>
-                </tr>);
-            const body = Object.entries(st.state).map(([key, fn],_) => {
-                return <tr><td>{key}</td><td>{fn(this.props.params.applicationName)}</td></tr>
-            });
-            console.log('commit!')
-            return (<Table bordered hover variant="dark">
-                <thead>{head}</thead>
-                <tbody>{body}</tbody>
-            </Table>)
-        })
         return(<Container>
             <h2>State</h2>
             <hr />
             {this.state.table}
-            <br /><br /><br />
         </Container>)
     }
 }
