@@ -31,7 +31,7 @@ class Started extends React.Component {
     return (<div className="App">
       <Container fluid={false} className="Plaas-container">
         <Jumbotron className="Plaas-jumbtoron">
-          <h1>Started Plapps</h1>
+          <h1>Select a template</h1>
           <p>Let’s select a Plasma application template.</p>
         </Jumbotron>
         <Row className="Plaas-templates">

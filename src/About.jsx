@@ -13,9 +13,8 @@ class About extends React.Component {
                 <h1>About</h1>
                 </Jumbotron>
                 <hr />
-                    <p className="About"> Plasm as a Service (PlaaS) will be to easy deploying plasma application.</p>
-                    <p className="About"> We hope this site is useful when you try to build applications on Substrate and Polkadot.</p>
-                    <p className="About"> If you want to add your SRML, feel free to fill out the application form.</p>
+                    <p className="About"> PlaaS is a tool to deploy plasma applications easily.</p>
+                    <p className="About"> We hope this site is useful when you try to build Plasma applications on Substrate with Plasm.</p>                    
             </Container>
         </div>);
       }
