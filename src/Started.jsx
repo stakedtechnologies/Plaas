@@ -32,7 +32,7 @@ class Started extends React.Component {
       <Container fluid={false} className="Plaas-container">
         <Jumbotron className="Plaas-jumbtoron">
           <h1>Started Plapps</h1>
-          <p>Let’s select Plasma application template.</p>
+          <p>Let’s select a Plasma application template.</p>
         </Jumbotron>
         <Row className="Plaas-templates">
           <ShowCards cards={this.state.cards} />

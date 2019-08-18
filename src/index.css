@@ -94,8 +94,8 @@ code {
 }
 
 .App-header {
-  background-image: url('./header-img.jpg');
-  background-size: contain;
+  background: url('./header-img.jpg') no-repeat center center;
+  background-size: cover;
 
   min-height: 100vh;
   display: flex;
