@@ -7,7 +7,8 @@ import Deploy from './Deploy';
 import Console from './Console';
 import Header from './Header';
 import Footer from './Footer';
-import { BrowserRouter, Route } from "react-router-dom";
+import NotFound from './NotFound';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withCookies, Cookies } from 'react-cookie';
 import DefaultManager from './ExternalManager';
 
@@ -23,12 +24,15 @@ class Router extends React.Component {
         return(<BrowserRouter>
             <div>
                 <Header />
+                <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/started" component={Started} />
                 <Route path="/create/cash" component={CreateCash} />
                 <Route path="/deploy" component={Deploy} />
                 <Route path="/console/:plappname" component={Console} /> 
                 <Route path="/about" component={About} />
+                <Route component={NotFound} />
+                </Switch>
                 <Footer />
             </div>
         </BrowserRouter>
