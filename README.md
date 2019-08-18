@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PlaaS is a tool to deploy plasma applications easily.
+
+*!! Note, mock branch is mock demo application. It does not actually deploy to blockchain.!!*
 
 ## Available Scripts
 
