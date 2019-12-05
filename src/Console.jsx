@@ -10,7 +10,7 @@ import { throwStatement } from '@babel/types';
 
 var menu = [
     {
-        name: "Configure",
+        name: "Configuration",
         description: "Config of Plapp"
     },
     {
@@ -95,7 +95,7 @@ class Configure extends React.Component {
             return <tr><td>{key}</td><td>{value}</td></tr>
         })
         return(<Container>
-            <h2>Configure</h2>
+            <h2>Configuration</h2>
             <hr />
             <Table striped bordered hover variant="dark">
                 <tbody>
